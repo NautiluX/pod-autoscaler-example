@@ -1,0 +1,19 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    openshift.io/host.generated: "true"
+  labels:
+    app: pod-autoscaler-example
+    app.kubernetes.io/component: pod-autoscaler-example
+    app.kubernetes.io/instance: pod-autoscaler-example
+  name: pod-autoscaler-example
+  namespace: autoscaler-example
+spec:
+  port:
+    targetPort: 8081
+  to:
+    kind: Service
+    name: pod-autoscaler-example
+    weight: 100
+  wildcardPolicy: None

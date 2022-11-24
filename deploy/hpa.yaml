@@ -1,0 +1,25 @@
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: pod-autoscaler-example
+  namespace: autoscaler-example
+spec:
+  maxReplicas: 10
+  metrics:
+  - resource:
+      name: memory
+      target:
+        averageUtilization: 30
+        type: Utilization
+    type: Resource
+  minReplicas: 1
+  behavior:
+    scaleUp:
+      stabilizationWindowSeconds: 0
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 60
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: pod-autoscaler-example
