@@ -220,6 +220,14 @@ func runWorker(instance InstanceInfo) {
 		}
 		w.Write(body)
 	})
+	serverWorker.HandleFunc("/metrics", func(w http.ResponseWriter, r *http.Request) {
+		body := ""
+		body += fmt.Sprintf("instances_count %d\n", len(instances))
+		body += fmt.Sprintf("workload_mib %d\n", workload.WorkloadSize)
+		body += fmt.Sprintf("chunksize_mib %d\n", workload.ChunkSize)
+		w.Write([]byte(body))
+	})
+
 	go startWorkerServer(serverWorker)
 
 }
