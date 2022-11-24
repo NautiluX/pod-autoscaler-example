@@ -74,7 +74,7 @@ chunksize_mib 150
 
 Resources in the deploy folder can be used to run it on a Kubernetes or OpenShift cluster.
 
-The deployment in [`deploy.yaml`](deploy/deploy.yaml) will create a single instance, the service and route ([`svc.yaml`](deploy/svc.yaml) and [`route.yaml`](deploy.route.yaml)) are used to expose it.
+The deployment in [`deploy.yaml`](deploy/deploy.yaml) will create a single instance, the service and route ([`svc.yaml`](deploy/svc.yaml) and [`route.yaml`](deploy/route.yaml)) are used to expose it.
 Note that the command passes the service hostname and port to the containers so they can initiate communication when new instances come up.
 
 The horizontal pod autoscaler in [`hpa.yaml`](deploy/hpa.yaml) will increase and decrease instances as necessary when the load increases/decreases.
