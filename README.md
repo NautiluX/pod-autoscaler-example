@@ -95,4 +95,4 @@ you can see how the chunk size first went up when the workload was increased, an
 For the vertical pod autoscaler to work, make sure you have at least 2 replicas deployed, then deploy [`vpa.yaml`](deploy/vpa.yaml).
 You can see that the memory limits increase when VPA is installed and also when the workload gets increased:
 
-![Observing chunk size](doc/img/vpa.png)
+![Vertical Pod Autoscaler](doc/img/vpa.png)
