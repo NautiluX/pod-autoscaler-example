@@ -1,0 +1,13 @@
+apiVersion: autoscaling.k8s.io/v1
+kind: VerticalPodAutoscaler
+metadata:
+  name: pod-autoscaler-example
+  namespace: autoscaler-example
+spec:
+  updatePolicy:
+    updateMode: Auto
+  minReplicas: 2
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: pod-autoscaler-example

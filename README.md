@@ -91,3 +91,8 @@ When using OpenShift, you can query them in the OpenShift console:
 ![Observing chunk size](doc/img/metrics.png)
 
 you can see how the chunk size first went up when the workload was increased, and then back down when the autoscaler kicked in and scaled the deployment.
+
+For the vertical pod autoscaler to work, make sure you have at least 2 replicas deployed, then deploy [`vpa.yaml`](deploy/vpa.yaml).
+You can see that the memory limits increase when VPA is installed and also when the workload gets increased:
+
+![Observing chunk size](doc/img/vpa.png)
